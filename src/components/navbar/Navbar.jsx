@@ -6,9 +6,13 @@ function Navbar({ setActiveCategory, activeCategory, setFiltered, popular }) {
       setFiltered(popular);
       return;
     }
+    // filtered, conterrà l'intero array dei film
+    // ma filtrato secondo le categorie.
+    // Se l'id categoria del film corrisponde con l'id settato nella categoria attiva
     const filtered = popular.filter((movie) =>
       movie.genre_ids.includes(activeCategory)
     );
+    console.log(filtered);
     setFiltered(filtered);
   }, [activeCategory]);
 
@@ -32,7 +36,7 @@ function Navbar({ setActiveCategory, activeCategory, setFiltered, popular }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
+              <button
                 className={
                   activeCategory === 0 ? "btn active nav-link" : "btn nav-link"
                 }
@@ -40,27 +44,27 @@ function Navbar({ setActiveCategory, activeCategory, setFiltered, popular }) {
                 onClick={() => setActiveCategory(0)}
               >
                 All
-              </a>
+              </button>
             </li>
             <li className="nav-item">
-              <a
+              <button
                 className={
                   activeCategory === 35 ? "btn active nav-link" : "btn nav-link"
                 }
                 onClick={() => setActiveCategory(35)}
               >
                 Comedy
-              </a>
+              </button>
             </li>
             <li className="nav-item">
-              <a
+              <button
                 className={
                   activeCategory === 28 ? "btn active nav-link" : "btn nav-link"
                 }
                 onClick={() => setActiveCategory(28)}
               >
                 Action
-              </a>
+              </button>
             </li>
           </ul>
         </div>
